@@ -74,14 +74,20 @@ relative and the same build works at `https://<user>.github.io/<any-repo>/` or a
 
 1. Push the project to a GitHub repository.
 2. In the repository, go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-3. Push to `main`. The **Deploy to GitHub Pages** workflow lints, builds and publishes the site.
+3. Push to `main`. The **CI** workflow lints, then builds, then its **Deploy** job publishes the
+   site.
    You can also run it manually from the **Actions** tab.
 
 ### CI
 
-- `.github/workflows/ci.yml` runs on every push to any branch and on pull requests. It runs ESLint,
-  Prettier's format check, and a type-check plus build.
-- `.github/workflows/deploy.yml` runs on pushes to `main`. It lints, builds and deploys to Pages.
+A single workflow, `.github/workflows/ci.yml`, runs three jobs in sequence. Each job starts only
+after the previous one passes.
+
+1. **Lint** runs ESLint and Prettier's format check.
+2. **Build** runs the type-check and production build.
+3. **Deploy** runs only on pushes to `main`. It publishes the exact build that **Build** produced.
+
+**Lint** and **Build** run on every push to any branch and on pull requests.
 
 ## How data is stored
 
