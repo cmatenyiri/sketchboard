@@ -1,0 +1,282 @@
+/* Draw-on animation for hand-drawn paths: children read the delay from --d on their group. */
+.tut-draw path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: tut-draw var(--dur, 0.9s) cubic-bezier(0.55, 0.1, 0.3, 1) var(--d, 0s) both;
+}
+.tut-draw path.tut-fill {
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
+  animation: tut-fade 0.5s ease calc(var(--d, 0s) + var(--dur, 0.9s) * 0.6) both;
+}
+@keyframes tut-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes tut-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tut-fade-in {
+  animation: tut-fade 0.5s ease var(--d, 0s) both;
+}
+
+.tut-pop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-pop 0.45s cubic-bezier(0.3, 1.6, 0.5, 1) var(--d, 0s) both;
+}
+@keyframes tut-pop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tut-float {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-float 3.2s ease-in-out var(--d, 0s) infinite alternate;
+}
+@keyframes tut-float {
+  from {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  to {
+    transform: translateY(4px) rotate(2deg);
+  }
+}
+
+.tut-transform {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-transform 4s ease-in-out infinite;
+}
+@keyframes tut-transform {
+  0%,
+  10% {
+    transform: rotate(0deg) scale(1);
+  }
+  35%,
+  45% {
+    transform: rotate(-12deg) scale(1.12);
+  }
+  70%,
+  80% {
+    transform: rotate(8deg) scale(0.92);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.tut-cursor-transform {
+  animation: tut-cursor-transform 4s ease-in-out infinite;
+}
+@keyframes tut-cursor-transform {
+  0%,
+  10% {
+    transform: translate(0px, 0px);
+  }
+  35%,
+  45% {
+    transform: translate(26px, 2px);
+  }
+  70%,
+  80% {
+    transform: translate(-10px, -16px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.tut-blink {
+  animation: tut-blink 1s steps(1) infinite;
+}
+@keyframes tut-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.tut-type {
+  animation: tut-type var(--dur, 1.6s) steps(var(--steps, 20)) var(--d, 0s) both;
+}
+@keyframes tut-type {
+  from {
+    width: 0;
+  }
+}
+
+.tut-pan {
+  animation: tut-pan 7s ease-in-out infinite alternate;
+}
+@keyframes tut-pan {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-60px, -10px) scale(1);
+  }
+  100% {
+    transform: translate(-30px, 20px) scale(1.18);
+  }
+}
+.tut-pan-view {
+  animation: tut-pan-view 7s ease-in-out infinite alternate;
+}
+@keyframes tut-pan-view {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(9px, 1.5px) scale(1);
+  }
+  100% {
+    transform: translate(5px, -3px) scale(0.85);
+  }
+}
+
+.tut-swatch-ring {
+  animation: tut-swatch 6s steps(1) infinite;
+}
+@keyframes tut-swatch {
+  0% {
+    transform: translateX(0px);
+  }
+  25% {
+    transform: translateX(34px);
+  }
+  50% {
+    transform: translateX(68px);
+  }
+  75% {
+    transform: translateX(102px);
+  }
+}
+
+.tut-press {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-press 2.4s ease-in-out var(--d, 0s) infinite;
+}
+@keyframes tut-press {
+  0%,
+  30%,
+  100% {
+    transform: translateY(0);
+  }
+  38%,
+  55% {
+    transform: translateY(3px);
+  }
+}
+
+.tut-row-highlight {
+  animation: tut-rows 4.8s steps(1) infinite;
+}
+@keyframes tut-rows {
+  0% {
+    transform: translateY(0px);
+  }
+  33% {
+    transform: translateY(34px);
+  }
+  66% {
+    transform: translateY(68px);
+  }
+}
+
+.tut-laser path {
+  stroke-dasharray: 1;
+  animation: tut-laser 2.6s ease-in-out infinite;
+}
+@keyframes tut-laser {
+  0% {
+    stroke-dashoffset: 1;
+    opacity: 1;
+  }
+  55% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  85%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.tut-confetti {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-confetti 3.5s ease-in-out var(--d, 0s) infinite;
+}
+@keyframes tut-confetti {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(60px) rotate(220deg);
+    opacity: 0;
+  }
+}
+
+.tut-click {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tut-click 3s ease-out var(--d, 0s) infinite;
+}
+@keyframes tut-click {
+  0%,
+  40% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tut-draw path,
+  .tut-fade-in,
+  .tut-pop,
+  .tut-float,
+  .tut-transform,
+  .tut-cursor-transform,
+  .tut-type,
+  .tut-pan,
+  .tut-pan-view,
+  .tut-swatch-ring,
+  .tut-press,
+  .tut-row-highlight,
+  .tut-confetti,
+  .tut-click {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

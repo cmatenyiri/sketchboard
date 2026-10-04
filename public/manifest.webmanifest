@@ -1,0 +1,11 @@
+{
+  "name": "Sketchboard",
+  "short_name": "Sketchboard",
+  "description": "A hand-drawn style infinite whiteboard that runs entirely in your browser.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fbf8f2",
+  "theme_color": "#f2542d",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

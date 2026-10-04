@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#fbf8f2" />
+    <meta
+      name="description"
+      content="Sketchboard — a hand-drawn style infinite whiteboard that runs entirely in your browser. Sketch diagrams, wireframes and ideas, then share them as a single link."
+    />
+    <meta property="og:title" content="Sketchboard" />
+    <meta
+      property="og:description"
+      content="A hand-drawn style infinite whiteboard. No account, no server — share a whole board as one link."
+    />
+    <title>Sketchboard — hand-drawn whiteboard</title>
+    <style>
+      /* Paint the paper color before React boots to avoid a white flash. */
+      html,
+      body {
+        margin: 0;
+        background: #fbf8f2;
+      }
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          background: #151413;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>Sketchboard needs JavaScript to run.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
